@@ -117,8 +117,56 @@ char *ft_strjoin(char const *s1, char const *s2);
 ```
 
 ### ft_strtrim
-문자열에서 set에 지정된 문자가 제거도니 문자열 s1의 사본을 반환  
-s1의 앞뒤에 set에 있는 문자가 있으면 해당 문자들을 trim한 후 리턴
+s1에서 set에 지정된 문자가 제거된 문자열 s1의 사본을 반환  
+s1의 앞뒤에 set에 있는 문자가 있으면 해당 문자들을 trim한 후 리턴  
+set에 있는 문자 하나하나 해당되면 삭제함
 ``` c
-char  *ft_strtrim(char const *s1, char const *set);
+char	*ft_strtrim(char const *s1, char const *set);
+```
+
+### ft_split
+
+
+### ft_atoi
+입력된 정수를 문자열로 바꿔줌
+``` c
+char	*ft_itoa(int n);
+```
+
+### ft_strmapi
+문자열 s의 각 인덱스에 담긴 값에 함수 f를 적용한 결과를 반환해 주는 함수
+함수 사용 예제 
+```
+s가 "abcde" 
+ft_strmapi(*s, plus(i, s[i]));  
+결과 : "bcdef"
+```
+``` c
+char	*ft_strmapi(char const *s, char (*f)(unsigned int , char));
+```
+
+### ft_putchar_fd
+문자 c를 주어진 파일 스크립터로 출력  
+unistd 헤더파일 추가
+``` c
+void	ft_putchar_fd(char c, int fd);
+```
+
+### ft_putstr_fd
+문자열 s를 주어진 파일 스크립터로 출력  
+unistd 헤더파일 추가
+``` c
+void	ft_putstr_fd(char *s, int fd);
+```
+
+### ft_putendl_fd
+문자열 s를 주어진 파일 스크립터로 출력하고 newline으로 끝내기
+``` c
+void	ft_putchar_fd(char c, int fd);
+```
+
+### ft_putnbr_fd
+문자 c를 주어진 파일스트립터로 출력
+``` c
+void	ft_putnbr_fd(int n, int fd);
 ```
