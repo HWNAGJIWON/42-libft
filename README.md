@@ -125,7 +125,10 @@ char	*ft_strtrim(char const *s1, char const *set);
 ```
 
 ### ft_split
-
+문자 c를 기준으로 문자열 s를 분할하여 새로운 문자열 배열로 반환
+``` c
+char  **ft_split(char const *s, char c);
+```
 
 ### ft_atoi
 입력된 정수를 문자열로 바꿔줌
