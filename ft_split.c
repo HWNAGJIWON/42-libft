@@ -5,7 +5,7 @@ static int count_word(char *str, char c)
 	int		i;
 	int		cnt;
 	
-	cnt = 1;
+	cnt = 0;
 	i = 0;
 	while (str[i])
 	{
