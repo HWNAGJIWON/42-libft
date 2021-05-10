@@ -55,8 +55,50 @@ size-1만큼 string을 복사해주고 null을 보장해줌
 ``` C
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 ```
+
 ### ft_strlcat
-src를 dest의 끝에 추가해주는 함수이다(!결합되는 총길이!를 리턴)  
+src를 dest의 끝에 추가해주는 함수이다(!결합되는 총길이!를 리턴)   
+dest의 마지막 위치에 src를 size - strlen(dest) -1만큼 복사하고 끝에 널문자를 삽입한다.
 ``` C
 size_t	ft_strlcat(char *dest, const char *src, size_t size);
 ```
+
+### ft_strchr
+문자열에서 특정 문자를 검색하는 방법  
+해당 문자로 시작하는 문자열의 위치를 반환
+``` C
+char  *ft_strchr(const char *s, int c);
+```
+
+### ft_strrchr
+문자열에서 마지막으로 있는 문자의 포인터를 리턴
+``` c
+char  *strrchr(const char *s, int c);
+```
+
+### ft_strnstr
+big 문자열 len길이중에 little 문자열을 찾는다.
+``` C
+char  *strnstr(const char *big, const char *little, size_t len);
+```
+
+### ft_strncmp
+문자열 s1과 문자열 s2를 n번째까지 비교한다.
+``` c
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+```
+
+### ft_calloc
+size 크기의 변수를 count개만큼 저장할 수 있는 메모리 공간을 할당  
+할당된 메모리 공간을 0으로 초기화
+``` c
+char	*ft_calloc(size_t count, size_t size);
+```
+
+### ft_strdup
+포인터 s가 가리키는 문자열을 복사하고, 복사된 문자열에 대한 포인터를 반환  
+함수 내부에서 malloc함(!)
+``` c
+char	*strdup(const char *s);
+```
+
