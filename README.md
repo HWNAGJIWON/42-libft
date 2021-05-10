@@ -102,3 +102,23 @@ char	*ft_calloc(size_t count, size_t size);
 char	*strdup(const char *s);
 ```
 
+### ft_substr
+문자열을 자를 때 사용하는 함수  
+문자열 s의 start번째부터 len길이만큼 새로 할당한 배열에 저장 후 할당한 배열 리턴
+``` C
+char  *ft_substr(char const *s, unsigned int start, size_t len);
+```
+
+### ft_strjoin
+문자열 s1과 s2를 연결한 새 문자열 반환 (함수 내부에서 malloc 사용)  
+할당 실패시 널 리턴
+``` c
+char *ft_strjoin(char const *s1, char const *s2);
+```
+
+### ft_strtrim
+문자열에서 set에 지정된 문자가 제거도니 문자열 s1의 사본을 반환  
+s1의 앞뒤에 set에 있는 문자가 있으면 해당 문자들을 trim한 후 리턴
+``` c
+char  *ft_strtrim(char const *s1, char const *set);
+```
