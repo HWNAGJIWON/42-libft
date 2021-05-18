@@ -6,7 +6,7 @@
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 17:05:59 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/14 14:32:36 by jeolee           ###   ########.fr       */
+/*   Updated: 2021/05/18 13:00:49 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,12 @@ void	*ft_memmove(void *dest, const void *src, unsigned long count)
 	char		*temp;
 	const char	*s;
 
+	if (dest == 0 && src == 0)
+		return ((void *)0);
+	s = src;
 	if (dest <= src)
 	{
 		temp = dest;
-		s = src;
 		while (count--)
 			*temp++ = *s++;
 	}
@@ -28,7 +30,6 @@ void	*ft_memmove(void *dest, const void *src, unsigned long count)
 	{
 		temp = dest;
 		temp += count;
-		s = src;
 		s += count;
 		while (count--)
 			*--temp = *--s;

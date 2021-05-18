@@ -6,7 +6,7 @@
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/11 15:05:13 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/14 14:35:17 by jeolee           ###   ########.fr       */
+/*   Updated: 2021/05/18 18:22:04 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,23 @@
 
 char	*ft_substr(char const *s, unsigned int start, unsigned long len)
 {
-	unsigned long	i;
-	unsigned long	j;
 	char			*str;
+	unsigned int	i;
+	unsigned long	min_len;
 
-	i = 0;
-	if (!s[i])
+	if (!s)
 		return (0);
+	min_len = ft_strlen(s);
+	if (min_len < len)
+		len = min_len;
 	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
 		return (0);
-	j = 0;
-	while (s[i])
+	i = 0;
+	while ((unsigned long)i < len && start + i < (unsigned int)ft_strlen(s))
 	{
-		if (start <= i && j < len)
-		{
-			str[j] = s[i];
-			j++;
-		}
+		str[i] = s[start + i];
 		i++;
 	}
-	str[j] = 0;
+	str[i] = 0;
 	return (str);
 }

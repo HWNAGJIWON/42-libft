@@ -6,9 +6,11 @@
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 18:21:14 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/16 18:22:54 by jiwhwang         ###   ########.fr       */
+/*   Updated: 2021/05/17 16:57:49 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

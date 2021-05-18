@@ -5,89 +5,104 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/11 17:46:58 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/14 14:33:29 by jeolee           ###   ########.fr       */
+/*   Created: 2021/05/18 21:40:25 by jiwhwang          #+#    #+#             */
+/*   Updated: 2021/05/18 23:01:42 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		is_c_or_end(char s, char charset)
+int		get_num(const char *str, char c)
 {
 	int	i;
+	int	num;
 
 	i = 0;
-	if (charset == s)
-		return (1);
-	if (s == 0)
-		return (1);
-	return (0);
-}
-
-int		count_num_of_words(char *str, char charset)
-{
-	int	i;
-	int	count;
-
-	count = 0;
-	i = 0;
+	num = 0;
 	while (str[i])
 	{
-		if (is_c_or_end(str[i], charset) == 1 &&
-			is_c_or_end(str[i + 1], charset) == 0)
-			count++;
-		i++;
+		if (str[i] != c && str[i])
+		{
+			num++;
+			while (str[i] != c && str[i])
+				i++;
+		}
+		else if (str[i] != 0)
+			i++;
 	}
-	return (count);
+	return (num);
 }
 
-void	ft_strcpy(char *dest, char *src, char charset)
+void	*free_mem(char **allocated, int cnt)
 {
 	int	i;
 
 	i = 0;
-	while (is_c_or_end(src[i], charset) == 0)
+	while (i < cnt)
 	{
-		dest[i] = src[i];
+		free(allocated[i]);
 		i++;
 	}
-	dest[i] = 0;
+	free(allocated);
+	return ((void *)0);
 }
 
-void	fill_res(char **res, char *str, char charset)
+void	my_strcpy(char *dst, char const *src, int start, int last)
+{
+	int	i;
+
+	i = 0;
+	while (start < last)
+	{
+		dst[i] = src[start];
+		i++;
+		start++;
+	}
+	dst[i] = 0;
+}
+
+void	start_split(char const *s, char c, char **str)
 {
 	int	i;
 	int	j;
-	int	word;
+	int	start;
 
-	word = 0;
 	i = 0;
-	while (str[i])
+	j = 0;
+	while (s[i])
 	{
-		if (is_c_or_end(str[i], charset) == 1)
-			i++;
-		else
+		if (s[i] != c && s[i])
 		{
-			j = 0;
-			while (is_c_or_end(str[i + j], charset) == 0)
-				j++;
-			res[word] = (char *)malloc(sizeof(char) * (j + 1));
-			ft_strcpy(res[word], str + i, charset);
-			i = i + j;
-			word++;
+			start = i;
+			while (s[i] != c && s[i])
+				i++;
+			if (!(str[j] = (char *)malloc(sizeof(char) * (i - start + 1))))
+			{
+				free_mem(str, j);
+				return ;
+			}
+			my_strcpy(str[j], s, start, i);
+			j++;
 		}
+		else if (s[i] != 0)
+			i++;
 	}
 }
 
-char	**ft_split(char const *str, char charset)
+char	**ft_split(char const *str, char c)
 {
-	char	**res;
-	int		word;
+	char	**ret;
+	int		n;
 
-	word = count_num_of_words((char *)str, charset);
-	if ((res = (char **)malloc(sizeof(char *) * (word + 1))) == NULL)
-		return (NULL);
-	res[word] = 0;
-	fill_res(res, (char *)str, charset);
-	return (res);
+	if (str == 0)
+		return (0);
+	n = get_num(str, c);
+	ret = (char **)malloc(sizeof(char *) * (n + 1));
+	if (str == 0)
+		return (0);
+	ret[n] = 0;
+	if (n == 0)
+		return (ret);
+	start_split(str, c, ret);
+	return (ret);
 }

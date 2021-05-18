@@ -5,31 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/06 16:44:10 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/07 19:00:21 by jiwhwang         ###   ########.fr       */
+/*   Created: 2021/05/17 18:29:10 by jiwhwang          #+#    #+#             */
+/*   Updated: 2021/05/18 13:08:49 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(char * str, int c)
+char	*ft_strchr(const char *str, int c)
 {
-	int		i;
-	int		find;
+	int	i;
 
 	i = 0;
-	find = 0;
 	while (str[i])
 	{
-		if (str[i] == c)
-		{
-			find = 1;
-			break;
-		}
+		if (str[i] == (char)c)
+			return ((char *)&str[i]);
 		i++;
 	}
-	if (find == 1)
-		return (str + i);
-	else
-		return (0);
+	if (0 == c)
+		return ((char *)&str[i]);
+	return (0);
 }

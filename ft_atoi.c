@@ -6,13 +6,13 @@
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 16:23:46 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/14 14:28:08 by jeolee           ###   ########.fr       */
+/*   Updated: 2021/05/18 20:58:56 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_isspace(char c)
+int	ft_isspace(char c)
 {
 	if ((9 <= c && c <= 13) || c == 32)
 		return (1);
@@ -20,26 +20,26 @@ static int	ft_isspace(char c)
 		return (0);
 }
 
-int			ft_atoi(char *str)
+int	ft_atoi(const char *str)
 {
-	int	i;
-	int	answer;
-	int	minus;
+	int		i;
+	long	answer;
+	int		minus;
 
 	minus = 0;
 	i = 0;
 	answer = 0;
-	while (ft_isspace(str[i]) == 1)
+	while (ft_isspace((char)str[i]))
 		i++;
-	if (str[i] == '-' || str[i] == '+')
+	if ((char)str[i] == '-' || (char)str[i] == '+')
 	{
 		if (str[i] == '-')
 			minus = 1;
 		i++;
 	}
-	while (48 <= str[i] && str[i] <= 57)
+	while (48 <= (char)str[i] && (char)str[i] <= 57)
 	{
-		answer = 10 * answer + (str[i] - 48);
+		answer = 10 * answer + (char)str[i] - 48;
 		i++;
 	}
 	if (minus == 1)

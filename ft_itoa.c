@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/13 16:42:59 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/14 14:31:02 by jeolee           ###   ########.fr       */
+/*   Created: 2021/05/18 14:57:10 by jiwhwang          #+#    #+#             */
+/*   Updated: 2021/05/18 17:53:28 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,14 @@ int		count_size(long long n)
 {
 	int	i;
 
-	i = 0;
-	if (n <= 0)
-	{
-		i++;
+	i = (n <= 0) ? 1 : 0;
+	if (n < 0)
 		n *= -1;
-	}
-	while (n / 10 > 0)
+	while (n != 0)
 	{
 		i++;
 		n = n / 10;
 	}
-	if (0 < n && n <= 10)
-		i++;
 	return (i);
 }
 
@@ -43,7 +38,7 @@ void	ft_fill(char *str, int i, long long n, int size)
 		n *= -1;
 		str[0] = '-';
 	}
-	str[size + 1] = 0;
+	str[size] = 0;
 	i = size - 1;
 	while (i >= negative)
 	{
