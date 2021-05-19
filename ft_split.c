@@ -6,103 +6,86 @@
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/18 21:40:25 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/18 23:01:42 by jiwhwang         ###   ########.fr       */
+/*   Updated: 2021/05/19 14:11:35 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		get_num(const char *str, char c)
+int		ft_count_words(const char *s, char c)
 {
 	int	i;
-	int	num;
+	int	words;
 
 	i = 0;
-	num = 0;
-	while (str[i])
+	words = 0;
+	while (s[i])
 	{
-		if (str[i] != c && str[i])
+		if (s[i] != c)
 		{
-			num++;
-			while (str[i] != c && str[i])
+			words++;
+			while (s[i] != c && s[i])
 				i++;
 		}
-		else if (str[i] != 0)
+		else
 			i++;
 	}
-	return (num);
+	return (words);
 }
 
-void	*free_mem(char **allocated, int cnt)
-{
-	int	i;
-
-	i = 0;
-	while (i < cnt)
-	{
-		free(allocated[i]);
-		i++;
-	}
-	free(allocated);
-	return ((void *)0);
-}
-
-void	my_strcpy(char *dst, char const *src, int start, int last)
-{
-	int	i;
-
-	i = 0;
-	while (start < last)
-	{
-		dst[i] = src[start];
-		i++;
-		start++;
-	}
-	dst[i] = 0;
-}
-
-void	start_split(char const *s, char c, char **str)
+char	**ft_size_words(const char *s, char c, char **res)
 {
 	int	i;
 	int	j;
-	int	start;
+	int	size_word;
 
 	i = 0;
 	j = 0;
 	while (s[i])
 	{
-		if (s[i] != c && s[i])
+		size_word = 0;
+		if (s[i] != c)
 		{
-			start = i;
 			while (s[i] != c && s[i])
-				i++;
-			if (!(str[j] = (char *)malloc(sizeof(char) * (i - start + 1))))
 			{
-				free_mem(str, j);
-				return ;
+				++size_word;
+				++i;
 			}
-			my_strcpy(str[j], s, start, i);
+			if (!(res[j] = malloc(sizeof(char) * (size_word + 1))))
+				return (0);
 			j++;
 		}
-		else if (s[i] != 0)
+		else
 			i++;
 	}
+	return (res);
 }
 
-char	**ft_split(char const *str, char c)
+char	**ft_split(const char *s, char c)
 {
-	char	**ret;
-	int		n;
+	int		i;
+	int		j;
+	int		k;
+	char	**dest;
 
-	if (str == 0)
+	i = 0;
+	j = 0;
+	if (!s || !(dest = malloc(sizeof(char *) * (ft_count_words(s, c) + 1))))
 		return (0);
-	n = get_num(str, c);
-	ret = (char **)malloc(sizeof(char *) * (n + 1));
-	if (str == 0)
+	if (!(ft_size_words(s, c, dest)))
 		return (0);
-	ret[n] = 0;
-	if (n == 0)
-		return (ret);
-	start_split(str, c, ret);
-	return (ret);
+	while (s[i] && !(k = 0))
+	{
+		if (s[i] != c)
+		{
+			while (s[i] != c && s[i])
+				dest[j][k++] = s[i++];
+			dest[j][k] = 0;
+			j++;
+		}
+		else
+			i++;
+	}
+	dest[j] = 0;
+	return (dest);
 }

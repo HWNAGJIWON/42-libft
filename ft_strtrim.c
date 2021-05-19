@@ -6,7 +6,7 @@
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/13 14:03:16 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/18 20:58:36 by jiwhwang         ###   ########.fr       */
+/*   Updated: 2021/05/19 12:28:54 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*post(char const *s1)
 {
 	if (s1 == 0)
 		return (0);
-	return ((char *)s1);
+	return (ft_strdup(s1));
 }
 
 int		find_start(char *s1, char *set)
@@ -43,12 +43,12 @@ int		find_start(char *s1, char *set)
 	return (start);
 }
 
-int		find_end(char *s1, char *set)
+int		find_end(char *s1, char *set, int start)
 {
 	int	end;
 
 	end = ft_strlen(s1) - 1;
-	while (s1[end] && s1_is_contained(s1[end], (char *)set))
+	while (start < end && s1_is_contained(s1[end], (char *)set))
 		end--;
 	return (end);
 }
@@ -61,19 +61,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 	char	*result;
 
 	i = 0;
-	if (s1 == 0 || set == 0)
+	if (s1 == 0 || ft_strlen(set) == 0)
 		return (post(s1));
 	start = find_start((char *)s1, (char *)set);
-	end = find_end((char *)s1, (char *)set);
-	if (start > end)
+	end = find_end((char *)s1, (char *)set, start);
+	if (start >= end)
 		return (ft_strdup(""));
-	if (!(result = (char *)malloc(sizeof(char) * (end - start + 1))))
+	if (!(result = (char *)malloc(sizeof(char) * (end - start + 2))))
 		return (0);
 	while (start <= end)
-	{
-		result[i] = s1[start++];
-		i++;
-	}
+		result[i++] = s1[start++];
 	result[i] = 0;
 	return (result);
 }
