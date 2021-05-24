@@ -6,11 +6,9 @@
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 17:20:45 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/14 14:30:04 by jeolee           ###   ########.fr       */
+/*   Updated: 2021/05/21 14:21:31 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isascii(int c)
 {

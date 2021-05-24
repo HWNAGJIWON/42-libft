@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/18 21:40:25 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/19 14:11:35 by jiwhwang         ###   ########.fr       */
+/*   Created: 2021/05/21 20:36:17 by jiwhwang          #+#    #+#             */
+/*   Updated: 2021/05/21 20:36:21 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_count_words(const char *s, char c)
+static int	ft_count_words(const char *s, char c)
 {
 	int	i;
 	int	words;
@@ -33,7 +33,18 @@ int		ft_count_words(const char *s, char c)
 	return (words);
 }
 
-char	**ft_size_words(const char *s, char c, char **res)
+static char	**ft_free(char **res, int line)
+{
+	while (line > 0)
+	{
+		free(res[line - 1]);
+		line--;
+	}
+	free(res);
+	return (0);
+}
+
+static char	**ft_size_words(const char *s, char c, char **res)
 {
 	int	i;
 	int	j;
@@ -52,7 +63,7 @@ char	**ft_size_words(const char *s, char c, char **res)
 				++i;
 			}
 			if (!(res[j] = malloc(sizeof(char) * (size_word + 1))))
-				return (0);
+				return (ft_free(res, j));
 			j++;
 		}
 		else
@@ -61,7 +72,7 @@ char	**ft_size_words(const char *s, char c, char **res)
 	return (res);
 }
 
-char	**ft_split(const char *s, char c)
+char		**ft_split(const char *s, char c)
 {
 	int		i;
 	int		j;

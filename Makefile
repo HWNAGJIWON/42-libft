@@ -6,7 +6,7 @@
 #    By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/11 16:12:05 by jiwhwang          #+#    #+#              #
-#    Updated: 2021/05/17 16:51:29 by jiwhwang         ###   ########.fr        #
+#    Updated: 2021/05/21 21:00:11 by jiwhwang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,7 +92,7 @@ re : fclean all
 $(NAME) : $(OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 
-bonus : $(OBJS) $(OBJS_BONUS)
+bonus :$(OBJS) $(OBJS_BONUS)
 	$(AR) $(ARFLAGS) $(NAME) $^
 
  .PHONY : all clean fclean re

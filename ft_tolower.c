@@ -6,11 +6,9 @@
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 17:59:10 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/14 14:35:25 by jeolee           ###   ########.fr       */
+/*   Updated: 2021/05/21 14:26:40 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_tolower(int a)
 {

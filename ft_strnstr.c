@@ -6,17 +6,17 @@
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 15:27:56 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/17 21:50:42 by jiwhwang         ###   ########.fr       */
+/*   Updated: 2021/05/21 14:26:06 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *big, const char *little, unsigned long len)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	unsigned long	i;
-	unsigned long	j;
-	unsigned long	little_len;
+	size_t	i;
+	size_t	j;
+	size_t	little_len;
 
 	little_len = ft_strlen(little);
 	i = 0;

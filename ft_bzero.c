@@ -6,13 +6,13 @@
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 15:13:10 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/14 14:28:29 by jeolee           ###   ########.fr       */
+/*   Updated: 2021/05/21 14:20:24 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_bzero(void *ptr, unsigned long num)
+void	ft_bzero(void *ptr, size_t num)
 {
 	ft_memset(ptr, 0, num);
 }

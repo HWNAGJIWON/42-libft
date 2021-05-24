@@ -6,11 +6,9 @@
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/07 17:09:14 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/14 14:30:24 by jeolee           ###   ########.fr       */
+/*   Updated: 2021/05/21 14:21:42 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isdigit(int num)
 {

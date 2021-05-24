@@ -6,15 +6,15 @@
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/03 16:08:01 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/18 12:58:41 by jiwhwang         ###   ########.fr       */
+/*   Updated: 2021/05/21 14:22:43 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, unsigned long n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	unsigned long	i;
+	size_t	i;
 
 	i = 0;
 	if (dest == 0 && src == 0)

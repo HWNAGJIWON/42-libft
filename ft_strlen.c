@@ -6,11 +6,9 @@
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 14:43:27 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/14 14:34:20 by jeolee           ###   ########.fr       */
+/*   Updated: 2021/05/21 14:24:55 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_strlen(const char *str)
 {

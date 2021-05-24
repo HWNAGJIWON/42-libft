@@ -6,16 +6,16 @@
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/04 14:42:49 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/14 14:31:17 by jeolee           ###   ########.fr       */
+/*   Updated: 2021/05/21 14:22:21 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dest, const void *src, int c, unsigned long n)
+void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	unsigned long	i;
-	int				flag;
+	size_t	i;
+	int		flag;
 
 	i = 0;
 	flag = 0;

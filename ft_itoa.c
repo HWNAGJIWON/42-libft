@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/18 14:57:10 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/18 17:53:28 by jiwhwang         ###   ########.fr       */
+/*   Created: 2021/05/21 20:33:32 by jiwhwang          #+#    #+#             */
+/*   Updated: 2021/05/21 20:33:37 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		count_size(long long n)
+static int	count_size(long long n)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ int		count_size(long long n)
 	return (i);
 }
 
-void	ft_fill(char *str, int i, long long n, int size)
+static void	ft_fill(char *str, int i, long long n, int size)
 {
 	int	negative;
 
@@ -48,7 +48,7 @@ void	ft_fill(char *str, int i, long long n, int size)
 	}
 }
 
-char	*ft_itoa(int n2)
+char		*ft_itoa(int n2)
 {
 	int			i;
 	int			size;

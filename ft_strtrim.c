@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/13 14:03:16 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/19 12:28:54 by jiwhwang         ###   ########.fr       */
+/*   Created: 2021/05/21 18:56:48 by jiwhwang          #+#    #+#             */
+/*   Updated: 2021/05/21 18:56:59 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		s1_is_contained(char s1, char *set)
+static int	s1_is_contained(char s1, char *set)
 {
 	int	i;
 
@@ -26,14 +26,14 @@ int		s1_is_contained(char s1, char *set)
 	return (0);
 }
 
-char	*post(char const *s1)
+static char	*post(char const *s1)
 {
 	if (s1 == 0)
 		return (0);
 	return (ft_strdup(s1));
 }
 
-int		find_start(char *s1, char *set)
+static int	find_start(char *s1, char *set)
 {
 	int	start;
 
@@ -43,7 +43,7 @@ int		find_start(char *s1, char *set)
 	return (start);
 }
 
-int		find_end(char *s1, char *set, int start)
+static int	find_end(char *s1, char *set, int start)
 {
 	int	end;
 
@@ -53,7 +53,7 @@ int		find_end(char *s1, char *set, int start)
 	return (end);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char		*ft_strtrim(char const *s1, char const *set)
 {
 	int		i;
 	int		start;

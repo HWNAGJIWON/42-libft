@@ -6,13 +6,13 @@
 /*   By: jiwhwang <jiwhwang@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/06 14:48:29 by jiwhwang          #+#    #+#             */
-/*   Updated: 2021/05/18 16:14:25 by jiwhwang         ###   ########.fr       */
+/*   Updated: 2021/05/21 14:24:45 by jiwhwang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlcpy(char *dest, char const *src, unsigned long size)
+int	ft_strlcpy(char *dest, char const *src, size_t size)
 {
 	int	i;
 	int	srclen;
